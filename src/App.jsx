@@ -5,6 +5,8 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AddCollection from "./components/AddCollection";
+import MyCollections from "./components/MyCollections";
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
         <Route path="/" element={<HomeScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
+        <Route path="/create" element={<AddCollection />} />
+        <Route path="/mycollections" element={<MyCollections />} />
       </Routes>
     </div>
   );

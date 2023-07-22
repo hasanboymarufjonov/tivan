@@ -12,6 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -27,7 +28,7 @@ const Header = () => {
       dispatch(logout());
       navigate("/");
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
   return (
@@ -123,13 +124,39 @@ const Header = () => {
                                 <Menu.Item>
                                   {({ active }) => (
                                     <Link
-                                      to="/profile"
+                                      to="/mycollections"
                                       className={classNames(
                                         active ? "bg-gray-100" : "",
                                         "block px-4 py-2 text-sm text-gray-700"
                                       )}
                                     >
-                                      Your Profile
+                                      My collections
+                                    </Link>
+                                  )}
+                                </Menu.Item>
+                                <Menu.Item>
+                                  {({ active }) => (
+                                    <Link
+                                      to="/create"
+                                      className={classNames(
+                                        active ? "bg-gray-100" : "",
+                                        "block px-4 py-2 text-sm text-gray-700"
+                                      )}
+                                    >
+                                      Create collection
+                                    </Link>
+                                  )}
+                                </Menu.Item>
+                                <Menu.Item>
+                                  {({ active }) => (
+                                    <Link
+                                      to="/settings"
+                                      className={classNames(
+                                        active ? "bg-gray-100" : "",
+                                        "block px-4 py-2 text-sm text-gray-700"
+                                      )}
+                                    >
+                                      Settings
                                     </Link>
                                   )}
                                 </Menu.Item>

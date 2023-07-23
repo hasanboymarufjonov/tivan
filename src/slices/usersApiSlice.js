@@ -9,6 +9,9 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         url: `${USER_URL}/auth`,
         method: "POST",
         body: data,
+        headers: {
+          "Content-Type": "application/json",
+        },
       }),
     }),
     register: builder.mutation({

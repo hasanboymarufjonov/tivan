@@ -8,7 +8,10 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: "https://tivan-server.vercel.app",
+        // target: "http://localhost:5000",
         changeOrigin: true,
+        secure: false,
+        ws: true,
       },
     },
   },

@@ -156,7 +156,7 @@ const Header = () => {
                                         "block px-4 py-2 text-sm text-gray-700"
                                       )}
                                     >
-                                      Settings
+                                      Update profile
                                     </Link>
                                   )}
                                 </Menu.Item>

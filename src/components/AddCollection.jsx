@@ -30,7 +30,7 @@ const RegisterScreen = () => {
       });
 
       if (response.ok) {
-        navigate("/profile");
+        navigate("/mycollections");
         toast.success("Collection created successfully!");
       } else {
         toast.error("Don't forget the topic 😉");

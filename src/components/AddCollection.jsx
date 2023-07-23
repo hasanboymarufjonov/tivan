@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { toast } from "react-toastify";
+import BASE_URL from "../config";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -21,12 +22,13 @@ const RegisterScreen = () => {
     };
 
     try {
-      const response = await fetch("/api/collections", {
+      const response = await fetch(`${BASE_URL}/api/collections`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+        credentials: "include",
       });
 
       if (response.ok) {

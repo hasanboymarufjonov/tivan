@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Skeleton from "./Skeleton";
+import BASE_URL from "../config";
 
 const LargestCollections = () => {
   const [largestCollections, setLargestCollections] = useState([]);
@@ -12,7 +13,9 @@ const LargestCollections = () => {
 
   const fetchLargestCollections = async () => {
     try {
-      const response = await axios.get("/api/collections/largest-collections");
+      const response = await axios.get(
+        `${BASE_URL}/api/collections/largest-collections`
+      );
       setLargestCollections(response.data);
       setLoading(false);
     } catch (error) {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import BASE_URL from "../config";
 
 const MyCollections = () => {
   const [collections, setCollections] = useState([]);
@@ -16,7 +17,9 @@ const MyCollections = () => {
 
   const fetchCollections = async () => {
     try {
-      const response = await fetch("/api/collections");
+      const response = await fetch(`${BASE_URL}/api/collections`, {
+        credentials: "include", // Include cookies with the request
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -43,7 +46,7 @@ const MyCollections = () => {
       };
 
       const response = await fetch(
-        `/api/collections/${collectionId}
+        `${BASE_URL}/api/collections/${collectionId}
       `,
         {
           method: "POST",
@@ -51,6 +54,7 @@ const MyCollections = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(newItem),
+          credentials: "include",
         }
       );
 

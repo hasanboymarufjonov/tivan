@@ -1,6 +1,7 @@
+import BASE_URL from "../config";
 import { apiSlice } from "./apiSlice";
 
-const USER_URL = "/api/users";
+const USER_URL = `${BASE_URL}/api/users`;
 
 export const usersApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -9,9 +10,6 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         url: `${USER_URL}/auth`,
         method: "POST",
         body: data,
-        headers: {
-          "Content-Type": "application/json",
-        },
       }),
     }),
     register: builder.mutation({

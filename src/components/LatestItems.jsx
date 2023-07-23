@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Skeleton from "./Skeleton";
+import BASE_URL from "../config";
 
 const LatestItems = () => {
   const [latestItems, setLatestItems] = useState([]);
@@ -11,7 +12,7 @@ const LatestItems = () => {
 
   const fetchLatestItems = async () => {
     try {
-      const response = await fetch("/api/collections/latest-items");
+      const response = await fetch(`${BASE_URL}/api/collections/latest-items`);
       const data = await response.json();
       setLatestItems(data);
     } catch (error) {

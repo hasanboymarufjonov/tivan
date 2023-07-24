@@ -34,6 +34,7 @@ const LargestCollections = () => {
         <Skeleton />
         <Skeleton />
         <Skeleton />
+        <Skeleton />
       </div>
     );
   }

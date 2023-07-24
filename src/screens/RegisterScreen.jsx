@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRegisterMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const RegisterScreen = () => {
+  const { t } = useTranslation();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,7 +47,7 @@ const RegisterScreen = () => {
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Create account
+                {t("Create account")}
               </h1>
               <form className="space-y-4 md:space-y-6" onSubmit={submitHandler}>
                 <div>
@@ -52,7 +55,7 @@ const RegisterScreen = () => {
                     htmlFor="name"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    Your Name
+                    {t("Your Name")}
                   </label>
                   <input
                     type="text"
@@ -69,14 +72,14 @@ const RegisterScreen = () => {
                     htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    Your email
+                    {t("Your email")}
                   </label>
                   <input
                     type="email"
                     name="email"
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@company.com"
+                    placeholder="name@email.com"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -87,7 +90,7 @@ const RegisterScreen = () => {
                     htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    Password
+                    {t("Password ")}
                   </label>
                   <input
                     type="password"
@@ -104,7 +107,7 @@ const RegisterScreen = () => {
                     htmlFor="confirm-password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    Confirm Password
+                    {t("Confirm Password")}
                   </label>
                   <input
                     type="password"
@@ -122,7 +125,7 @@ const RegisterScreen = () => {
                   type="submit"
                   className="w-full text-white bg-[#d2ae6d] dark:bg-white dark:text-gray-900  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 >
-                  Create account
+                  {t("Create account")}
                 </button>
               </form>
             </div>

@@ -13,8 +13,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 import { toast } from "react-toastify";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t } = useTranslation();
+
   const { userInfo } = useSelector((state) => state.auth);
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -26,7 +30,6 @@ const Header = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
-      // document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       navigate("/");
     } catch (error) {
       toast.error(error);
@@ -71,7 +74,7 @@ const Header = () => {
                     <img
                       className="h-8 w-auto"
                       src={tivanLogo}
-                      alt="Your Company"
+                      alt="Tivan logo"
                     />
                     <h2 className="text-3xl text-white ml-2">
                       <Link to="/">Tivan</Link>
@@ -87,9 +90,8 @@ const Header = () => {
 
                       {userInfo ? (
                         <>
-                          {" "}
+                          <LanguageSwitcher />{" "}
                           <span className="hidden lg:block">
-                            {" "}
                             <Switcher />
                           </span>
                           <Menu as="div" className="relative ml-3">
@@ -131,7 +133,7 @@ const Header = () => {
                                         "block px-4 py-2 text-sm text-gray-700"
                                       )}
                                     >
-                                      My collections
+                                      {t("My collections")}
                                     </Link>
                                   )}
                                 </Menu.Item>
@@ -144,7 +146,7 @@ const Header = () => {
                                         "block px-4 py-2 text-sm text-gray-700"
                                       )}
                                     >
-                                      Create collection
+                                      {t("Create collection")}
                                     </Link>
                                   )}
                                 </Menu.Item>
@@ -157,7 +159,7 @@ const Header = () => {
                                         "block px-4 py-2 text-sm text-gray-700"
                                       )}
                                     >
-                                      Update profile
+                                      {t("Update profile")}
                                     </Link>
                                   )}
                                 </Menu.Item>
@@ -171,7 +173,7 @@ const Header = () => {
                                       )}
                                       onClick={logoutHandler}
                                     >
-                                      Log out
+                                      {t("Log out")}
                                     </Link>
                                   )}
                                 </Menu.Item>
@@ -181,19 +183,19 @@ const Header = () => {
                         </>
                       ) : (
                         <>
-                          {" "}
+                          <LanguageSwitcher />
                           <Switcher />
                           <Link
                             to="/login"
                             className="bg-white text-[#d2ae6d] dark:text-gray-900 hover:bg-gray-50  dark:hover:bg-gray-700 dark:hover:text-white rounded-md px-3 py-2 text-sm font-medium hidden lg:block"
                           >
-                            Log In
+                            {t("Log In")}
                           </Link>
                           <Link
                             to="/register"
                             className="bg-white text-[#d2ae6d] dark:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-white rounded-md px-3 py-2 text-sm font-medium hidden lg:block"
                           >
-                            SignUp
+                            {t("Sign Up")}
                           </Link>
                         </>
                       )}
@@ -213,14 +215,14 @@ const Header = () => {
                       as="a"
                       className="text-center bg-white text-[#d2ae6d] dark:text-gray-900 hover:bg-gray-100 block rounded-md px-3 py-2 text-base font-medium"
                     >
-                      <Link to="/login">Log In</Link>
+                      <Link to="/login">{t("Log In")}</Link>
                     </Disclosure.Button>
                     <Disclosure.Button
                       href="/register"
                       as="a"
                       className="text-center bg-white text-[#d2ae6d] dark:text-gray-900 hover:bg-gray-100 block rounded-md px-3 py-2 text-base font-medium"
                     >
-                      <Link to="/register">Register</Link>
+                      <Link to="/register">{t("Register ")}</Link>
                     </Disclosure.Button>
                   </div>
                 </Disclosure.Panel>

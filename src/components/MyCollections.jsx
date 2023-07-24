@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import BASE_URL from "../config";
+import { useTranslation } from "react-i18next";
 
 const MyCollections = () => {
+  const { t } = useTranslation();
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -93,15 +94,15 @@ const MyCollections = () => {
             }}
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#d2ae6d] rounded-lg hover:bg-[#bda06b] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-white dark:text-gray-900 dark:focus:ring-gray-400"
           >
-            Add item
+            {t("Add item")}
           </button>
 
           {collection.collectionItems.length > 0 ? (
             <table className="mt-4 w-full border text-center dark:text-white dark:border-white">
               <thead>
                 <tr>
-                  <th className=" border-r border-b">Item Name</th>
-                  <th className=" border-b">Item Description</th>
+                  <th className=" border-r border-b">{t("Item Name")}</th>
+                  <th className=" border-b">{t("Item Description")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -114,13 +115,13 @@ const MyCollections = () => {
               </tbody>
             </table>
           ) : (
-            <p className="text-red-500 mt-4">*No items added</p>
+            <p className="text-red-500 mt-4">*{t("No items added")}</p>
           )}
 
           {isModalOpen && (
             <div className="fixed inset-0 flex items-center justify-center">
               <div className="bg-white w-96 p-6 rounded-lg shadow-lg">
-                <h3 className="text-2xl font-bold mb-4">Add Item</h3>
+                <h3 className="text-2xl font-bold mb-4"> {t("Add item")} </h3>
                 <input
                   type="text"
                   className="border border-gray-300 p-2 mb-2 w-full"
@@ -138,13 +139,13 @@ const MyCollections = () => {
                   className="bg-blue-500 text-white px-4 py-2 rounded-lg"
                   onClick={() => handleAddItem(collectionId)}
                 >
-                  Add Item
+                  {t("Add item")}
                 </button>
                 <button
                   className="bg-red-500 text-white px-4 py-2 rounded-lg ml-2"
                   onClick={() => setIsModalOpen(false)}
                 >
-                  Cancel
+                  {t("Cancel ")}
                 </button>
               </div>
             </div>

@@ -8,10 +8,11 @@ import {
 } from "./SkeletonHeader";
 import { useParams } from "react-router-dom";
 import BASE_URL from "../config";
+import { useTranslation } from "react-i18next";
 
 const CollectionListByTopic = () => {
   const { topicId } = useParams();
-
+  const { t } = useTranslation();
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -65,14 +66,14 @@ const CollectionListByTopic = () => {
               {collection.collectionName}
             </h5>
             <h5 className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white">
-              Author: {collection.collectionAuthor}
+              {t("Author ")}: {collection.collectionAuthor}
             </h5>
             <p className="dark:text-white">#{collection.collectionTopic}</p>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
               {collection.collectionDescription}
             </p>
             <p className="font-semibold text-gray-600 dark:text-gray-300">
-              Number of Items: {collection.collectionItems.length}
+              {t("Number of Items")}: {collection.collectionItems.length}
             </p>
           </div>
         ))}

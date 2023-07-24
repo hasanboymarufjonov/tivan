@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Skeleton from "./Skeleton";
 import BASE_URL from "../config";
+import { useTranslation } from "react-i18next";
 
 const LargestCollections = () => {
   const [largestCollections, setLargestCollections] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetchLargestCollections();
@@ -51,7 +54,7 @@ const LargestCollections = () => {
               {collection.collectionDescription}
             </p>
             <p className="font-semibold text-gray-600 dark:text-gray-300">
-              Number of Items: {collection.collectionItems.length}
+              {t("Number of Items")}: {collection.collectionItems.length}
             </p>
           </div>
         ))}

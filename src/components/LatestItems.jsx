@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Skeleton from "./Skeleton";
 import BASE_URL from "../config";
+import { useTranslation } from "react-i18next";
 
 const LatestItems = () => {
+  const { t } = useTranslation();
   const [latestItems, setLatestItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -43,16 +45,16 @@ const LatestItems = () => {
             className="p-6 bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700"
           >
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {item.itemName} in {item.collectionName}
+              {item.itemName} {t("in ")} {item.collectionName}
             </h5>
             <h5 className="mb-2 text-base font-base tracking-tight text-gray-900 dark:text-white">
-              Author: {item.collectionAuthor}
+              {t("Author ")}: {item.collectionAuthor}
             </h5>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
               {item.itemDescription}
             </p>
             <p className="text-gray-600 dark:text-gray-300">
-              Created at: {new Date(item.createdAt).toLocaleString()}
+              {t("Created at")}: {new Date(item.createdAt).toLocaleString()}
             </p>
           </div>
         ))}

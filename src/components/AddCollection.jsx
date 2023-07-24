@@ -84,11 +84,17 @@ const RegisterScreen = () => {
                     onChange={(e) => setTopic(e.target.value)}
                   >
                     <option disabled>Choose a topic</option>
-                    <option value="movies">Movies</option>
                     <option value="books">Books</option>
-                    <option value="foods">Foods</option>
                     <option value="games">Games</option>
+                    <option value="movies">Movies</option>
+                    <option value="tvseries">TV Series</option>
+                    <option value="foods">Foods</option>
+                    <option value="space">Space</option>
                     <option value="sport">Sport</option>
+                    <option value="animals">Animals</option>
+                    <option value="people">People</option>
+                    <option value="phones">Phones</option>
+                    <option value="places">Places</option>
                     <option value="other">Other</option>
                   </select>
                 </div>

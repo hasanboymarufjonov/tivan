@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AddCollection from "./components/AddCollection";
 import MyCollections from "./components/MyCollections";
 import PrivateRoute from "./components/PrivateRoute";
+import CollectionListByTopic from "./components/CollectionListByTopic";
 
 const App = () => {
   return (
@@ -26,6 +27,10 @@ const App = () => {
         <Route path="" element={<PrivateRoute />}>
           <Route path="/profile" element={<ProfileScreen />} />
         </Route>
+        <Route
+          path="/collections/:topicId"
+          element={<CollectionListByTopic />}
+        />
       </Routes>
     </div>
   );

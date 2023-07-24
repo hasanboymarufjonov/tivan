@@ -26,6 +26,7 @@ const Header = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
+      // document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       navigate("/");
     } catch (error) {
       toast.error(error);
@@ -150,7 +151,7 @@ const Header = () => {
                                 <Menu.Item>
                                   {({ active }) => (
                                     <Link
-                                      to="/settings"
+                                      to="/profile"
                                       className={classNames(
                                         active ? "bg-gray-100" : "",
                                         "block px-4 py-2 text-sm text-gray-700"

@@ -116,7 +116,7 @@ const translations = {
 i18n.use(LanguageDetector).use(initReactI18next).init({
   resources: translations,
   fallbackLng: "en",
-  debug: true,
+  debug: false,
 });
 
 export default i18n;

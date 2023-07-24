@@ -15,9 +15,9 @@ function LanguageSwitcher() {
       defaultValue={i18n.language}
       className=" rounded w-11 h-8"
     >
-      <option value="en">{t("EN")}</option>
-      <option value="sp">{t("SP")}</option>
-      <option value="ru">{t("RU")}</option>
+      <option value="en">EN</option>
+      <option value="sp">SP</option>
+      <option value="ru">RU</option>
     </select>
   );
 }

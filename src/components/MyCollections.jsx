@@ -58,9 +58,9 @@ const MyCollections = () => {
           credentials: "include",
         }
       );
+      setIsModalOpen(false);
 
       if (response.ok) {
-        setIsModalOpen(false);
         fetchCollections();
         toast.success("Item added");
         setItemName("");

@@ -35,6 +35,8 @@ const Header = () => {
       toast.error(error);
     }
   };
+  const adminCheck = userInfo && userInfo.role === "Admin";
+
   return (
     <div>
       <Disclosure as="nav" className="dark:bg-gray-800 bg-[#d2ae6d]">
@@ -124,6 +126,25 @@ const Header = () => {
                                     </p>
                                   )}
                                 </Menu.Item>
+                                {adminCheck ? (
+                                  <>
+                                    <Menu.Item>
+                                      {({ active }) => (
+                                        <Link
+                                          to="/admin"
+                                          className={classNames(
+                                            active ? "bg-gray-100" : "",
+                                            "block px-4 py-2 text-sm text-gray-700"
+                                          )}
+                                        >
+                                          {t("Administrator page")}
+                                        </Link>
+                                      )}
+                                    </Menu.Item>
+                                  </>
+                                ) : (
+                                  <></>
+                                )}
                                 <Menu.Item>
                                   {({ active }) => (
                                     <Link

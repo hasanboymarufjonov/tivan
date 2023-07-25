@@ -5,6 +5,7 @@ import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import { logout } from "../slices/authSlice";
 
 const LoginScreen = () => {
   const { t } = useTranslation();
@@ -21,6 +22,10 @@ const LoginScreen = () => {
 
   useEffect(() => {
     if (userInfo) {
+      if (userInfo.status === "Blocked") {
+        dispatch(logout());
+        toast.error("You are blocked");
+      }
       navigate("/");
     }
   }, [navigate, userInfo]);
@@ -31,6 +36,10 @@ const LoginScreen = () => {
     try {
       const res = await login({ email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
+      if (userInfo.status === "Blocked") {
+        dispatch(logout());
+        toast.error("You are blocked");
+      }
       navigate("/");
     } catch (err) {
       toast.error(err?.data?.message || err.error);

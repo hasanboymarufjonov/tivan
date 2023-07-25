@@ -10,6 +10,8 @@ import AddCollection from "./components/AddCollection";
 import MyCollections from "./components/MyCollections";
 import PrivateRoute from "./components/PrivateRoute";
 import CollectionListByTopic from "./components/CollectionListByTopic";
+import AdminScreen from "./screens/AdminScreen";
+import AdminRoute from "./components/AdminRoute";
 
 const App = () => {
   return (
@@ -31,6 +33,9 @@ const App = () => {
           path="/collections/:topicId"
           element={<CollectionListByTopic />}
         />
+        <Route path="" element={<AdminRoute />}>
+          <Route path="/admin" element={<AdminScreen />} />
+        </Route>
       </Routes>
     </div>
   );

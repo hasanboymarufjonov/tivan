@@ -46,6 +46,7 @@ const translations = {
       "Delete User": "Delete User",
       "Delete ": "Delete",
       "Administrator page": "Administrator page",
+      "Collections not created yet": "Collections not created yet",
     },
   },
   sp: {
@@ -91,6 +92,7 @@ const translations = {
       "Delete User": "Borrar usuario",
       "Delete ": "Borrar",
       "Administrator page": "Página del administrador",
+      "Collections not created yet": "Colecciones aún no creadas",
     },
   },
   ru: {
@@ -136,6 +138,7 @@ const translations = {
       "Delete User": "Удалить пользователя",
       "Delete ": "Удалить",
       "Administrator page": "Страница администратора",
+      "Collections not created yet": "Коллекции еще не созданы",
     },
   },
 };
